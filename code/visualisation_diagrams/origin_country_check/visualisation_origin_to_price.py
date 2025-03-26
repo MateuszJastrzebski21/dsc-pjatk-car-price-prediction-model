@@ -8,7 +8,7 @@ csv_files = glob.glob("data/origin/price_correlation_by_country_*.csv")
 latest_file = max(csv_files, key=os.path.getctime)
 df = pd.read_csv(latest_file)
 
-audi_df = df[df["Marka"] == "Toyota"]
+audi_df = df[df["Marka"] == "Audi"]
 
 top_5_audi = audi_df.nlargest(5, "Liczba_wystapien")
 
