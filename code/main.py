@@ -12,10 +12,15 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 from category_encoders import TargetEncoder
 
 print("Wczytuję dane z pliku CSV (train)...")
-df = pd.read_csv("data/sales_ads_train.csv")
+df = pd.read_csv("data/cleaned_sales_ads_train_20250317_173818.csv")
 
-num_cols = ["Rok_produkcji", "Przebieg_km", "Moc_KM", "Pojemnosc_cm3", "Emisja_CO2", "Liczba_drzwi"]
-cat_cols = ["Waluta", "Stan", "Marka_pojazdu", "Model_pojazdu", "Rodzaj_paliwa", "Typ_nadwozia", "Kolor", "Pierwszy_wlasciciel"]
+# Updated numeric columns
+num_cols = ["Cena", "Rok_produkcji", "Przebieg_km", "Moc_KM", "Pojemnosc_cm3", "Liczba_drzwi", "Wiek_pojazdu"]
+
+# Updated categorical columns
+cat_cols = ["Waluta", "Stan", "Marka_pojazdu", "Model_pojazdu", "Wersja_pojazdu", "Generacja_pojazdu", 
+           "Rodzaj_paliwa", "Naped", "Skrzynia_biegow", "Typ_nadwozia", "Kraj_pochodzenia", "Pierwszy_wlasciciel"]
+
 num_cols = [col for col in num_cols if col in df.columns]
 cat_cols = [col for col in cat_cols if col in df.columns]
 all_cols = num_cols + cat_cols
@@ -67,7 +72,7 @@ def objective(trial):
 
 print("Optymalizacja hiperparametrów za pomocą Optuny...")
 study = optuna.create_study(direction="minimize")
-study.optimize(objective, n_trials=20)
+study.optimize(objective, n_trials=50)
 
 best_params = study.best_params
 print("Najlepsze parametry znalezione przez Optunę:", best_params)
@@ -136,3 +141,5 @@ submission_df = pd.DataFrame({
 
 submission_df.to_csv("submission.csv", index=False)
 print("Zapisano submission.csv – plik gotowy do wysyłki.")
+
+

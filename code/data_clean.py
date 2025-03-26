@@ -95,7 +95,6 @@ def remove_outliers(df, iqr_scale=1.5):
 
 # MAIN CODE
 TRAIN_FILE_NAME = "data/sales_ads_train.csv"
-TEST_FILE_NAME = "data/sales_ads_test.csv"
 df = pd.read_csv(TRAIN_FILE_NAME)
 
 drop_columns = [
