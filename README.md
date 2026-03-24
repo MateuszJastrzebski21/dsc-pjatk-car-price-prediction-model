@@ -4,6 +4,11 @@
 > Predicting used car prices from real Polish automotive listings data.  
 > **Final result: RMSE ~19,500 PLN on private leaderboard.**
 
+
+> **Competition context:** 2-stage DSC PJATK recruitment — ~100 applicants, 
+> ~50 advanced to the modelling stage. **7th place out of 30+ two-person teams.**  
+> Top finishers were admitted to the club.
+
 ---
 
 ## Problem
@@ -113,3 +118,8 @@ Key challenges:
 
 *Project developed as part of the DSC PJATK recruitment competition, March 2025.*  
 *Team: Mateusz Jastrzębski & Damian Ruczyński*
+
+
+## Leaderboard
+
+![Leaderboard](leaderboard.png)
